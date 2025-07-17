@@ -22,9 +22,8 @@ This is a simple CRUD application for managing songs, built with Express.js. It 
     ```
 4. Create a `.env` file in the root directory and set the following environment variables:
     ```plaintext
-    PORT=3000
-    MONGODB_URI=mongodb://localhost:27017/anison-crud
-    SESSION_SECRET=your_secret_key
+    PORT=8888
+    DB_ADDR=mongodb://localhost:27017/
     ```
 5. Start the application:
     ```bash
