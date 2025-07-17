@@ -1,0 +1,20 @@
+mixin confirmDelete(deleteRequest) 
+    .delete-overlay
+        .delete-modal
+            .delete-header
+                i.fas.fa-exclamation-triangle.delete-icon
+                h3 Confirm Deletion
+            .delete-content
+                p Are you sure you want to delete?
+                //- .delete-item
+                //-     .item-name #{song.title}
+                //-     .item-details #{song.artist} • #{song.year}
+            .delete-actions
+                button.delete-btn.delete-btn--cancel Cancel
+                form(action=deleteRequest method="POST").confirm-delete-form
+                    input.hidden-list(hidden="true")
+                    button.delete-btn.delete-btn--confirm
+                        i.fas.fa-trash
+                        span Delete
+
+

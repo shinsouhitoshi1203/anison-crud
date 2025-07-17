@@ -1,0 +1,46 @@
+@use "./../abstracts/variables" as *;
+html {
+	font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif;
+	font-size: $text-normal;
+}
+
+body {
+	background-color: $dark-bg;
+	color: $dark-text-primary;
+	min-height: 100vh;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	font-weight: 800;
+	font-size: 44px;
+	margin: 6px 0 16px 0;
+	color: $dark-text-primary;
+	background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+	letter-spacing: -0.5px;
+	line-height: 1.2;
+}
+h2 {
+	font-weight: 900;
+	font-size: 36px;
+	margin: 6px 0;
+	color: $dark-text-primary;
+}
+main {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: $dark-bg;
+}
+
+button {
+	cursor: pointer;
+}

@@ -1,0 +1,44 @@
+@use "./../abstracts/variables" as *;
+
+.btn {
+	display: inline-block;
+	padding: 12px 24px;
+	background-color: #2563eb;
+	color: white;
+	text-decoration: none;
+	border-radius: 8px;
+	transition: all 0.3s ease;
+	border: 1px solid #2563eb;
+	font-weight: 600;
+	font-size: 14px;
+	box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+
+	&:hover {
+		background-color: #1d4ed8;
+		border-color: #1d4ed8;
+		transform: translateY(-1px);
+		box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+	}
+
+	&--red {
+		background-color: #dc2626 !important;
+		border-color: #dc2626;
+		box-shadow: 0 2px 4px rgba(220, 38, 38, 0.2);
+		&:hover {
+			background-color: #b91c1c;
+			border-color: #b91c1c;
+			box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
+		}
+	}
+
+	&--blue {
+		background-color: #2563eb !important;
+		border-color: #2563eb;
+		box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+		&:hover {
+			background-color: #1d4ed8;
+			border-color: #1d4ed8;
+			box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+		}
+	}
+}

@@ -1,0 +1,86 @@
+@use "./../../abstracts/variables" as *;
+
+.content {
+	&__main {
+		display: grid;
+		grid-gap: 10px;
+		margin: 20px 0;
+		padding: 10px;
+		background-color: $dark-surface;
+		border: 1px solid $dark-border;
+		border-radius: 8px;
+	}
+}
+
+.meta {
+	display: flex;
+	gap: 20px;
+	&__item {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		color: $dark-text-secondary;
+	}
+}
+
+.view {
+	display: grid;
+	grid-template-columns: 250px 1fr;
+	grid-gap: 20px;
+
+	&__image {
+		width: 100%;
+		height: auto;
+		border-radius: 8px;
+		border: 1px solid $dark-border;
+	}
+
+	&__meta {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+
+		&__title {
+			font-size: 24px;
+			font-weight: bold;
+			color: $dark-text-primary;
+		}
+		&__artist {
+			font-size: 20px;
+			color: $dark-text-secondary;
+		}
+		&__album {
+			font-size: 18px;
+			color: $dark-text-muted;
+		}
+		&__item {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+			color: $dark-text-secondary;
+			i {
+				aspect-ratio: 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 20px;
+				color: $dark-text-muted;
+			}
+		}
+	}
+}
+.content {
+	&__desc {
+		display: flex;
+		gap: 20px;
+		.btn {
+			display: flex;
+			gap: 10px;
+		}
+	}
+}
+.lyric {
+	p {
+		margin: 5px 0;
+	}
+}

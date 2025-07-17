@@ -1,0 +1,55 @@
+extend /layout/site.pug
+include /components/confirmDelete.pug
+block style 
+    link(rel="stylesheet" href="/public/css/pages/songs/viewSong.css")
+block script
+    script(src="/public/js/viewSongModal.js" defer type='text/javascript')
+block content 
+    main 
+        .content__header
+
+            div.content__desc
+                a(href="/songs").btn Return to the list
+                a(href="/songs/edit/" + song.slug).btn 
+                    i.fa-solid.fa-pencil-alt
+                    span Edit this song
+                button.btn.btn-delete-modal
+                    i.fa-solid.fa-trash
+                    span Delete this song
+
+        article.content__main 
+            h1 #{song.title}
+            div.meta
+                p.meta__item 
+                    i.fa-solid.fa-microphone-lines
+                    span #{song.artist}
+                p.meta__item
+                    i.fa-solid.fa-calendar 
+                    span #{song.year}
+        section.view 
+            aside.view__meta
+                img(src=song.ytThumb alt="Song Image")
+                p.view__meta__item 
+                    i.fa-solid.fa-microphone
+                    span #{song.artist}
+                //- album, cover
+                if song.album
+                    p.view__meta__item 
+                        i.fa-solid.fa-compact-disc
+                        span #{song.album}
+                p.view__meta__item
+                    i.fa-solid.fa-calendar
+                    span #{song.year}
+                a.btn.btn--red(href=song.ytLink, target="_blank")
+                    .view__meta__item
+                        i.fa-brands.fa-youtube
+                        span Watch on YouTube
+            .view__lyric 
+                h2 Lyrics 
+                div.lyric 
+                    if song.lyric
+                        each sentence in song.lyrics
+                            p.lyric__sentence #{sentence}
+                    else
+                        p No lyrics available for this song.
+    +confirmDelete(`/songs/delete/${song.slug}?_method=DELETE`)

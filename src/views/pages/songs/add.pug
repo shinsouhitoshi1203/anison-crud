@@ -1,0 +1,37 @@
+extend /layout/site.pug
+block style 
+    link(rel="stylesheet" href="/public/css/pages/songs/add.css")
+block content 
+    main 
+        .content__header
+
+            div.content__desc
+                a(href="/songs").btn Return to the list
+
+        article.content__main 
+            h1 add new song
+            if error
+                .error-message 
+                    p #{error}
+            .form__add 
+                form(action="/songs/add" method="POST")
+                    each field in fields
+                        .form__group
+                            label(for=field.name) #{field.label}
+                            .input__container
+                                if field.type == "textarea"
+                                    textarea(id=field.name name=field.name required=field.required  ) 
+                                        if dataInput
+                                            | #{dataInput[field.name]}
+                                        else if field.defaultValue
+                                            | #{field.defaultValue}
+                                else
+                                    if dataInput
+                                        input(type=field.type, id=field.name, name=field.name, required=field.required, value=dataInput[field.name]) 
+                                    else 
+                                        input(type=field.type, id=field.name, name=field.name, required=field.required,  value=field.defaultValue) 
+                                if field.icon
+                                    i.fas(class=field.icon).input__icon
+
+                    button.btn(type="submit") Add Song
+

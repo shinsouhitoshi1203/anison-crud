@@ -1,0 +1,64 @@
+extend /layout/site.pug
+include /components/confirmDelete.pug
+block style 
+    link(rel="stylesheet" href="/public/css/pages/songs/all.css")
+block script
+    script(src="/public/js/sites/all_songs.js")
+block content 
+    .content__header
+        h1 All songs
+        div.content__desc
+            div.content__info
+                p #{songs.length} song(s) total.
+            div.content__controls
+                div.sort-controls
+                    span.sort-label Sort by:
+                    div.sort-buttons
+                        form(action="/songs" method="POST" id="sort-form").sort-buttons
+                            input(type="hidden" name="orderSort" value="asc" id="sort-option")
+                            if orderSort === "asc"
+                                button.sort-btn.active(data-sort="asc")
+                                    i.fas.fa-sort-alpha-down
+                                button.sort-btn(data-sort="desc")
+                                    i.fas.fa-sort-alpha-up
+                            else
+                                button.sort-btn(data-sort="asc")
+                                    i.fas.fa-sort-alpha-down
+                                button.sort-btn.active(data-sort="desc")
+                                    i.fas.fa-sort-alpha-up
+            a(href="/songs/add").btn Add new song
+
+    .content__list 
+        if songs.length === 0
+            p No songs available.
+        else
+            .select-all-controls
+                label 
+                    input(type="checkbox" name="select-all" id="select-all-songs") 
+                    | Select all 
+                button.btn.btn--delete(type="button" disabled).delete-selected Delete Selected
+
+    .content__list 
+        each song in songs 
+            .song
+                .song__checkbox
+                    input.song__checkbox-input(type='checkbox' id=`song-${song._id || song.slug}` data-id= song._id)
+                .song__avatar= song.title.charAt(0).toUpperCase()
+                .song__content
+                    a.song__title(href=song.viewURL) #{song.title}
+                    .song__meta
+                        p.song__artist #{song.artist}
+                        span.meta-divider •
+                        p.song__year #{song.year}
+                .song__actions
+                    a.song__action-btn(href=song.viewURL title='View Song')
+                        i.fas.fa-eye
+                    a.song__action-btn(href=song.editURL title='Edit Song')
+                        i.fas.fa-edit
+                    if song.ytLink
+                        a.song__action-btn.song__action-btn--youtube(href=song.ytLink target='_blank' title='Watch on YouTube')
+                            i.fab.fa-youtube
+
+
+    if songs.length > 0
+        +confirmDelete(`/songs/delete-many/?_method=DELETE`)

@@ -1,0 +1,79 @@
+.content__main {
+  display: grid;
+  grid-gap: 10px;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #1e1e1e;
+  border: 1px solid #404040;
+  border-radius: 8px;
+}
+
+.meta {
+  display: flex;
+  gap: 20px;
+}
+.meta__item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #b3b3b3;
+}
+
+.view {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-gap: 20px;
+}
+.view__image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid #404040;
+}
+.view__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.view__meta__title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
+.view__meta__artist {
+  font-size: 20px;
+  color: #b3b3b3;
+}
+.view__meta__album {
+  font-size: 18px;
+  color: #8a8a8a;
+}
+.view__meta__item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #b3b3b3;
+}
+.view__meta__item i {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  color: #8a8a8a;
+}
+
+.content__desc {
+  display: flex;
+  gap: 20px;
+}
+.content__desc .btn {
+  display: flex;
+  gap: 10px;
+}
+
+.lyric p {
+  margin: 5px 0;
+}
+
+/*# sourceMappingURL=viewSong.css.map */

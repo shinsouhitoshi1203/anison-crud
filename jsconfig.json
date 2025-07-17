@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"baseUrl": "/src",
+		"module": "commonjs",
+		"target": "es6",
+		"paths": {
+			"@controllers/*": ["controllers/*"],
+			"@db/*": ["db/*"],
+			"@schemas/*": ["models/*"],
+			"@/*": ["*"]
+		},
+		"composite": true
+	}
+}

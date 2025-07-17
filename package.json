@@ -1,0 +1,27 @@
+{
+	"name": "learn-express",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"scripts": {
+		"start": "node --watch --inspect index.js",
+		"style": "sass --pkg-importer=node src/styles:public/css --watch"
+	},
+	"dependencies": {
+		"dotenv": "^17.2.0",
+		"express": "^5.1.0",
+		"method-override": "^3.0.0",
+		"module-alias": "^2.2.3",
+		"mongoose": "^8.16.3",
+		"mongoose-slug-updater": "^3.3.0",
+		"pug": "^3.0.3",
+		"sass": "^1.89.2",
+		"unidecode": "^1.1.0"
+	},
+	"_moduleAliases": {
+		"@controllers": "src/controllers",
+		"@db": "src/db/",
+		"@schemas": "src/models/"
+	},
+	"devDependencies": {}
+}
